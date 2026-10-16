@@ -61,13 +61,18 @@ void MessageHandler::handle(const Message& m) {
     else if (m.command == "sbp") state_.reportProtocolError("Server: bad parameters");
 }
 
-void MessageHandler::onMsz(const Message& m) {
-    if (m.args.size() < 2) return;
+void MessageHandler::onMsz(const Message& m) 
+{
+    if (m.args.size() < 2) 
+        return;
     int w = toInt(m.args[0]), h = toInt(m.args[1]);
-    if (w > 0 && h > 0 && w <= 2000 && h <= 2000) state_.setMapSize(w, h);
+    
+    if (w > 0 && h > 0 && w <= 2000 && h <= 2000) 
+        state_.setMapSize(w, h);
 }
 
-void MessageHandler::onBct(const Message& m) {
+void MessageHandler::onBct(const Message& m) 
+{
     if (m.args.size() < 9) return;
     std::array<int, kResourceCount> res{};
     for (int i = 0; i < kResourceCount; i++) res[i] = toInt(m.args[2 + i]);

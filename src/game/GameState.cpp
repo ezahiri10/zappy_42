@@ -41,7 +41,8 @@ void GameState::reset() {
 }
 
 void GameState::setMapSize(int width, int height) {
-    if (width <= 0 || height <= 0) return;
+    if (width <= 0 || height <= 0) 
+        return;
     width_ = width;
     height_ = height;
     tiles_.assign(static_cast<size_t>(width) * static_cast<size_t>(height), Tile{});
